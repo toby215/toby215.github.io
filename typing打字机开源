@@ -1,0 +1,59 @@
+ document.addEventListener('DOMContentLoaded', function() {
+      // 可自定义的打字内容数组
+      const texts = [
+        "今日事今日毕，明日事早规划",
+        "认真对待每一个今天",
+        "为目标全力以赴",
+        "日拱一卒，功不唐捐",
+		"生活即修行，当下即永恒"
+      ];
+      
+      const typedElement = document.getElementById('typed-subtitle');
+      let textIndex = 0; // 当前显示的文本索引
+      let charIndex = 0; // 当前显示的字符索引
+      let isDeleting = false; // 是否处于删除状态
+      let isEnd = false; // 是否完成一轮
+      
+      // 打字速度控制 (毫秒)
+      const typingSpeed = 150;    // 打字速度
+      const deletingSpeed = 75;   // 删除速度
+      const pauseAfterTyping = 1500; // 打完后停顿时间
+      const pauseAfterDeleting = 500; // 删除完后停顿时间
+      
+      // 打字机核心函数
+      function type() {
+        const currentText = texts[textIndex];
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        
+        // 打字逻辑
+        if (isDeleting) {
+          // 删除字符
+          typedElement.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          // 添加字符
+          typedElement.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+        }
+        
+        // 检查是否正在打字且未完成
+        if (!isDeleting && charIndex === currentText.length) {
+          isEnd = true;
+          isDeleting = true;
+          // 打完后停顿
+          setTimeout(type, pauseAfterTyping);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          // 切换到下一个文本
+          textIndex = (textIndex + 1) % texts.length;
+          // 删除完后停顿
+          setTimeout(type, pauseAfterDeleting);
+        } else {
+          // 继续打字或删除
+          setTimeout(type, speed);
+        }
+      }
+      
+      // 开始打字效果
+      setTimeout(type, 500);
+      （因为版权原因开源文件不包含css）
