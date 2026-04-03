@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>2023 年前端开发最佳实践与技能优化技巧</title>
+  <title>博客搭建大成功！</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -196,13 +196,13 @@
   <main class="container" role="main">
     <section class="hero" id="hero" style="background-image: url('7aa5d81b477591b31c8340ec9d5231bd.png');">
       <div class="hero-inner">
-        <h1 class="title" id="post-title">2023 年前端开发最佳实践与技能优化技巧</h1>
+        <h1 class="title" id="post-title">博客搭建大成功！</h1>
       </div>
     </section>
 
     <article class="card" aria-labelledby="post-title">
       <div class="meta">
-        <div class="avatar" id="author-avatar">W</div>
+        <div class="avatar" id="author-avatar">Y</div>
         <div>
           <div style="font-weight:700" id="author-name">文章作者：yangxt</div>
           <div style="font-size:13px;color:var(--muted)" id="post-date">2025-10-07</div>
@@ -210,23 +210,14 @@
       </div>
 
       <div class="content" id="post-content">
-      在前端技术高速迭代的 2023 年，开发者不仅需要掌握新技术，更要建立系统化的开发思维，通过最佳实践提升项目质量与自身效率。以下从工程化、性能优化、用户体验、技能提升四个维度，分享经过行业验证的实践方案与优化技巧。</p>
+      <p>博客搭建大成功</p>
 
       <div id="article-content">
-        <h2>一、工程化：构建高效协作体系</h2>
-        <p>模块化与组件化是现代前端开发的基石。2023 年主流实践是基于 “原子设计” 理念拆分组件，将 UI 元素拆解为 “原子（按钮、输入框）- 分子（搜索栏、卡片）- 有机体（表单、列表）- 模板 - 页面” 五级结构，配合 Storybook 进行组件文档化管理，既能保证组件复用率，又能降低跨团队协作成本。例如在 React 项目中，通过create-react-app或 Vite 搭建基础框架后，可采用feature-based目录结构（按业务功能划分文件夹），而非传统的type-based（按组件、页面、工具函数分类），让代码组织更贴近业务逻辑。
-自动化流程是提升效率的关键。2023 年主流方案是 “ESLint + Prettier + Husky + lint-staged” 组合：ESLint 负责代码质量检查（如禁止未使用变量、强制统一代码风格），Prettier 专注代码格式统一（解决团队成员间 “空格 vs 制表符” 的争议），Husky 与 lint-staged 则在代码提交前触发检查，避免不合规代码进入仓库。此外，引入自动化测试工具（Jest 做单元测试、Cypress 做 E2E 测试），将测试覆盖率纳入项目考核指标，可大幅降低线上 bug 率 —— 某电商项目实践显示，测试覆盖率从 30% 提升至 70% 后，线上问题排查时间减少 60%。</p>
-        <h2>二、性能优化：从 “能用” 到 “好用”</h2>
-        <p>首屏加载速度直接影响用户留存。2023 年核心优化手段包括：一是采用 “路由懒加载”，通过 React.lazy 或 Vue 的 defineAsyncComponent，将非首屏组件拆分到单独 chunk，减少初始加载体积；二是图片优化，优先使用 WebP/AVIF 格式（比 JPEG 小 25%-50%），配合srcset与sizes属性实现响应式加载，再通过loading="lazy"延迟加载视口外图片；三是利用 CDN 加速静态资源，将 JS、CSS、图片等部署到云服务商 CDN 节点，缩短用户请求链路。某资讯类网站通过上述优化，首屏加载时间从 3.2s 降至 1.5s，用户跳出率下降 28%。
-运行时性能优化需关注交互流畅度。避免频繁 DOM 操作是核心原则，可通过 “虚拟 DOM”（React/Vue 内置）或 “文档片段（DocumentFragment）” 批量处理节点；对于长列表渲染（如表格、商品列表），采用 “虚拟列表” 技术（如 react-window、vue-virtual-scroller），只渲染视口内可见元素，将 DOM 节点数量从数千个减少到几十个；此外，合理使用requestAnimationFrame处理动画（避免使用 setTimeout/setInterval 导致的卡顿），通过debounce（防抖）优化输入框搜索、throttle（节流）优化滚动事件，确保页面交互帧率稳定在 60fps。</p>
-        <h2>三、用户体验：细节处见真章</h2>
-          <p>响应式设计需兼顾 “适配” 与 “体验”。2023 年不再满足于 “能在手机上显示”，而是追求 “在不同设备上都好用”：采用 “移动优先” 开发思路，先完成移动端布局，再通过媒体查询（@media）适配平板、桌面端；针对触摸设备，增大点击区域（按钮最小尺寸 44×44px），避免误触；对于桌面端，优化键盘导航（支持 Tab 键切换焦点、Enter 键触发按钮），兼顾无障碍需求（如添加 aria-label 描述、保证颜色对比度≥4.5:1）。
-交互反馈提升用户掌控感。按钮点击时添加 “按压态”（如背景色加深、轻微缩放），表单提交时显示加载动画（避免用户重复点击），请求失败时提供明确的错误提示（如 “网络连接失败，请检查 WiFi” 而非 “提交失败”），并给出解决方案；此外，利用 “骨架屏” 替代传统加载菊花图，在数据请求期间展示页面大致结构，减少用户等待焦虑 —— 某社交 APP 实践显示，骨架屏比菊花图的用户等待容忍时间提升 40%。</p>
-        <h2>四、技能提升：构建可持续成长路径</h2>
-        <p>深耕核心技术而非追逐 “技术热点”。2023 年前端领域框架迭代放缓，React 18 的 Concurrent Mode、Vue 3 的 Composition API 已成为主流，开发者应深入理解其底层原理（如 React 的 Fiber 架构、Vue 的响应式原理），而非仅停留在 API 使用层面；同时，强化 JavaScript 基础（闭包、原型链、异步编程），掌握 TypeScript 类型系统（泛型、条件类型、映射类型），这些 “不变的底层能力” 是应对技术迭代的核心竞争力。
-建立系统化知识体系。通过 “项目复盘” 总结经验：每完成一个项目，梳理遇到的问题（如性能瓶颈、兼容性问题）、解决方案及优化空间，形成个人知识库；关注行业权威资源（如 MDN 文档、Google Web Dev、前端三大框架官方博客），定期阅读技术书籍（如《你不知道的 JavaScript》《高性能 JavaScript》），避免碎片化学习；此外，参与开源项目或撰写技术博客，将知识 “输出” 倒逼 “输入”，加速技能内化 —— 调查显示，坚持输出技术内容的开发者，技能成长速度比单纯学习的开发者快 2-3 倍。
-2023 年前端开发的竞争，本质是 “系统化能力” 的竞争。掌握工程化思维提升协作效率，通过性能优化与体验设计打造优质产品，再以持续学习构建长期竞争力，才能在技术浪潮中保持领先，实现从 “代码实现者” 到 “解决方案提供者” 的转变。</p>
-
+        <h1>看遍了网上的教程，还是没搞定</h1>
+        <h1>第二天下午想继续搞，但是遇上了一个奇怪的问题，又搞了很久</h1>
+        <h1>最后通过咨询相关老师和朋友终于搞定啦，成功搭建！</h1>
+        <h1>快乐，兴奋</h1>
+        <h1>希望以后能多发文章到这里！！</h1>
       </div>
 
       <div class="footer">
@@ -234,69 +225,11 @@
           <span style="font-weight:700" id="footer-author">版权声明: 本博客所有文章除特别声明外，均采用 CC BY-NC-SA 4.0 许可协议。转载请注明来自 效听的快乐日记！</span>
           <span style="margin-left:10px;color:var(--muted)" id="footer-copyright">© 2025</span>
         </div>
-        <div class="links">
-          <a id="link-original" href="#" target="_blank" rel="noopener">原文链接</a>
-          <span class="wechat-btn" id="wechat-open" role="button" aria-haspopup="dialog" aria-controls="qr-modal">
-            <!-- 微信SVG 图标 -->
-            <svg width="18" height="18" viewBox="0 0 1024 1024" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 246.5 64 464c0 96.8 43.8 185 117.6 250.2-2.6 28.6-18.2 93.3-27.6 131.2-5.6 23.3 6.3 37.5 28.2 37.5 8.7 0 17.8-1.8 26.9-5.4C281.6 910.9 389 960 512 960c247.4 0 448-182.5 448-400S759.4 64 512 64zM336 392c-25.4 0-46-20.6-46-46s20.6-46 46-46 46 20.6 46 46-20.6 46-46 46zm352 0c-25.4 0-46-20.6-46-46s20.6-46 46-46 46 20.6 46 46-20.6 46-46 46z"/></svg>
-            微信
-          </span>
-        </div>
-      </div>
-    </article>
-  </main>
 
 
-  <div class="qr-modal" id="qr-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="qr-card" role="document">
-      <h3 style="margin:0 0 12px 0">扫码关注 / 加我好友</h3>
-      <img id="qr-image" src="微信图片_20251007120423_259_2.jpg" alt="微信二维码（请替换图片地址）" />
-      <div class="qr-close" id="qr-close">点击任意处或 ESC 关闭</div>
-    </div>
-  </div>
 
   <script>
-    // 简单的交互：打开/关闭二维码弹窗
-    (function(){
-      const wechatBtn = document.getElementById('wechat-open');
-      const qrModal = document.getElementById('qr-modal');
-      const qrClose = document.getElementById('qr-close');
 
-      function openQR(){
-        qrModal.classList.add('open');
-        qrModal.setAttribute('aria-hidden','false');
-      }
-      function closeQR(){
-        qrModal.classList.remove('open');
-        qrModal.setAttribute('aria-hidden','true');
-      }
-
-      wechatBtn.addEventListener('click', openQR);
-      qrModal.addEventListener('click', function(e){
-        // 点击模态背景或关闭文字均关闭
-        if (e.target === qrModal || e.target === qrClose) closeQR();
-      });
-      document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape') closeQR();
-      });
-
-      // 可选：如果希望点击图片不关闭（防止误触），阻止冒泡
-      document.getElementById('qr-image').addEventListener('click', function(e){
-        e.stopPropagation();
-      });
-
-      // ---- 可编程替换初始占位内容（可删除） ----
-      // 下面示例展示如何用 JS 直接替换占位内容。你也可以直接修改 HTML 中的文本或 src。
-      // document.getElementById('hero').style.backgroundImage = 'url("你的大图地址.jpg")';
-      // document.getElementById('post-title').textContent = '这是新的文章标题';
-      // document.getElementById('author-name').textContent = '王老师';
-      // document.getElementById('post-content').innerHTML = '<p>新的内容...</p>';
-      // document.getElementById('qr-image').src = '二维码图片地址.png';
-      // document.querySelector('.back-btn').href = 'https://example.com/return';
-      // document.getElementById('link-original').href = 'https://example.com/original';
-      // -------------------------------------------
-    })();
-  </script>
 </body>
 </html>
 
